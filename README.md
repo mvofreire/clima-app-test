@@ -37,8 +37,11 @@ Aplicativo está pronto para ser implantado!
 
 ## Instalação
 - Entre no diretorio root da aplicação
-- rode o comando `yarn install`
+- Rode o comando `yarn install`
+- Rode o comando `yarn start`
 - Abra [http://localhost:3000](http://localhost:3000) para ver no browser aplicação rodando.
+
+- Para Produção rode `yarn build` - apos build a aplicação estara disponivel dentro da past `build`
 
 ## Técnologias Utilizadas
 
