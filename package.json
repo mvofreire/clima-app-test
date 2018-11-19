@@ -48,6 +48,7 @@
       "^images(.*)$": "<rootDir>/src/images$1",
       "^services(.*)$": "<rootDir>/src/services$1",
       "^contexts(.*)$": "<rootDir>/src/contexts$1",
+      "^config(.*)$": "<rootDir>/src/config$1",
       "^application(.*)$": "<rootDir>/src/application$1"
     },
     "setupFiles": [

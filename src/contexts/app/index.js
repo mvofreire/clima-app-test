@@ -15,25 +15,26 @@ class AppContextProvider extends React.Component {
     };
 
     this.loadData = this.loadData.bind(this);
+    this.refresh = this.refresh.bind(this);
   }
 
   componentDidMount() {
     this.loadData();
   }
 
-  async loadData() {
+  async loadData(forceReload = false) {
     this.setState({ isFetching: true });
 
-    const { data, timer } = await getWeathers(cities);
+    const { data, timer } = await getWeathers(cities, forceReload);
 
     this.setState({ data, timer, isFetching: false });
   }
 
-  refresh = () => {
+  refresh() {
     setTimeout(_ => {
-      this.loadData();
+      this.loadData(true);
     }, refreshTimeout);
-  };
+  }
 
   render() {
     return (

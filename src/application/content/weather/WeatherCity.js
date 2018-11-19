@@ -100,7 +100,7 @@ const WeatherCity = ({
               />
             )}
             <span className={classes.updated}>
-              Updated at {timer.format("HH:mm:ss A")}
+              Updated at {timer ? timer.format("HH:mm:ss A") : ""}
             </span>
           </Card.Footer>
         )}

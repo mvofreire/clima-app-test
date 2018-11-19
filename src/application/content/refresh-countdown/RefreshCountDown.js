@@ -15,6 +15,14 @@ const styles = ({ color, theme }) => ({
   }
 });
 
+const renderer = ({ hours, minutes, seconds, completed }) => {
+  return (
+    <span>
+      {minutes}:{seconds}
+    </span>
+  );
+};
+
 const RefreshComponent = ({ classes, refresh, timer }) => {
   const momentTimerCache =
     timer != null ? timer.add(cacheMinutesDuration, "minutes").valueOf() : null;
@@ -22,11 +30,11 @@ const RefreshComponent = ({ classes, refresh, timer }) => {
   return (
     momentTimerCache && (
       <div className={classes.root}>
-        <span className={classes.label}>A pagina irá atualizar em</span>
+        <span className={classes.label}>Os dados serão atualizados em: </span>
         <Countdown
-          className={classes.counter}
           date={momentTimerCache}
           onComplete={refresh}
+          renderer={renderer}
         />
       </div>
     )

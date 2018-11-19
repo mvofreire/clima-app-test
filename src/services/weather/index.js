@@ -4,6 +4,8 @@ import { getLocalStorage, saveLocalStorage } from "utils/storage";
 import moment from "moment";
 
 export const cacheWasExpired = time => {
+  if (!time) return false;
+
   const now = moment();
   const momentTimerCache = moment(time);
   var duration = moment.duration(now.diff(momentTimerCache));
@@ -11,11 +13,12 @@ export const cacheWasExpired = time => {
   return duration.minutes() > cacheMinutesDuration ? true : false;
 };
 
-export const getWeathers = async cities => {
+export const getWeathers = async (cities, forceReload = false) => {
   const cache = getLocalStorage(CACHE_DATA_KEY);
   const timerCache = getLocalStorage(CACHE_TIMER_KEY);
+  const reload = cacheWasExpired(timerCache) || forceReload;
 
-  if (!cache || cacheWasExpired(timerCache)) {
+  if (!cache || reload) {
     const { data } = await api.get("/group", {
       id: cities.join(",")
     });
@@ -24,15 +27,12 @@ export const getWeathers = async cities => {
     saveLocalStorage(CACHE_TIMER_KEY, now);
     saveLocalStorage(CACHE_DATA_KEY, data.list);
 
-    console.log('load from Net');
     return {
       load: "network",
       data: data.list,
       timer: now
     };
   }
-
-  console.log('load from cache');
 
   return {
     load: "cache",
