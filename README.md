@@ -1,24 +1,51 @@
-## Available Scripts
+## Pré Requisitos Mínimos
 
-In the project directory, you can run:
+- Node 8
+- Yarn 
+
+## Scripts disponíveis
+
+Entre no diretoria da aplicação para ficar disponivel os seguintes comandos:
+
+### `yarn install`
+
+Instala todas as dependencias da aplicação
 
 ### `yarn start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Roda a aplicação em modo de desenvolvimento.<br>
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Inicia os teste.<br>
+
+### `yarn test:watch`
+
+Inicia os teste em modo de exibição interativo.<br>
+
+### `yarn test:coverage`
+
+Inicia os teste e mostra cobertura para aplicação<br>
 
 ### `yarn build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builda a aplicação para modo de `production` na pasta `build`
+ele corretamente agrupa e otimiza os arquivos para melhor desempenho.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+A compilação é reduzida e os nomes dos arquivos incluem os hashes. <br>
+Aplicativo está pronto para ser implantado!
+
+## Instalação
+- Entre no diretorio root da aplicação
+- rode o comando `yarn install`
+- Abra [http://localhost:3000](http://localhost:3000) para ver no browser aplicação rodando.
+
+## Técnologias Utilizadas
+
+- ReactJs para desenvolvimento de aplicação - https://reactjs.org/
+- LocalStorage para manter cache e timer
+- Jest, Enzyme - Para desenvolvimento de testes - https://jestjs.io/
+- OPenWeatherMap - para fornecimento de dados API - https://openweathermap.org/
+- React Grid System - para estrutura de grid da aplicacao - https://jsxmachina.github.io/react-grid-system/
+- EsLint - para validação de manutenção do código - https://eslint.org/
+- ReactJss - Para tematizar e extração e isolação de css para aplicação - https://cssinjs.org/benefits?v=v9.8.7
